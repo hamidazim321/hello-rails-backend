@@ -11,17 +11,5 @@ module HelloRailsBackend
     config.load_defaults 7.1
     config.autoload_lib(ignore: %w(assets tasks))
     config.api_only = true
-
-    if Rails.env.development?
-      config.middleware.insert_before 0, Rack::Cors do
-        allow do
-          origins '*'
-          resource '*',
-            headers: :any,
-            methods: [:get, :post, :put, :patch, :delete, :options, :head]
-        end
-      end
-    end
-
   end
 end
